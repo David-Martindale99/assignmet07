@@ -1,113 +1,81 @@
 //STEP 1
-let favMovies = ['Nope', 'Tenet', 'Alice Through The Looking Glass', 'Voyers', 'Joker']
+let favMovies = ['Tenet', 'Alice Through The Looking Glass', 'Joker', 'The Dark Knight', 'Voyers']
 console.log(favMovies[1])
 //STEP 2
-let movies = new Array(5);
-movies[0] = 'Nope'
-movies[1] = 'Tenet'
-movies[2] = 'Alice Through The Looking Glass'
-movies[3] = 'Voyers'
-movies[4] = 'Joker'
-console.log(movies[0])
-//STEP 3
-let movies2 = new Array(5);
-movies2[0] = 'Nope'
-movies2[1] = 'Tenet'
-movies2[2] = 'The Woman King'
-movies2[3] = 'Alice Through The Looking Glass'
+let movies2 = new Array(5)
+movies2[0] = 'Tenet'
+movies2[1] = 'Alice Throught The Lookign Glass'
+movies2[2] = 'Joker'
+movies2[3] = 'The Dark Knight'
 movies2[4] = 'Voyers'
-movies2[5] = 'Joker'
+console.log(movies2[0])
+//STEP 3
+let movies3 = movies2
+movies3.splice(2, 0, 'Inception')
+console.log(movies3)
 //STEP 4
-let moviesArray = []
-moviesArray[0] = 'Nope' 
-moviesArray[1] = 'Tenet' 
-moviesArray[2] = 'ATTLG' 
-moviesArray[3] = 'Voyers' 
-moviesArray[4] = 'Joker'
-delete moviesArray[0]
-console.log(moviesArray)
+let movies4 = ['Tenet', 'Joker', 'Pulp Fiction', 'The Dark Knight', 'Nope', 'Tokyo Drift']
+delete movies4[0]
+console.log(movies4)
 //STEP 5
-let movies5 = []
-movies5[0] = 'Nope'
-movies5[1] = 'Tenet'
-movies5[2] = 'ATTLG'
-movies5[3] = 'Voyers'
-movies5[4] = 'Joker'
-movies5[5] = 'TWK'
-movies5[6] = 'HOG'
+let movies5 = ['Tenet', 'Joker', 'Pulp Fiction', 'The Dark Knight', 'Nope', 'Tokyo Drift', 'Alice']
 for (index in movies5) {
     console.log(movies5[index])
 }
 //STEP 6
-let movies6 = []
-movies6[0] = 'Nope'
-movies6[1] = 'Tenet'
-movies6[2] = 'ATTLG'
-movies6[3] = 'Voyers'
-movies6[4] = 'Joker'
-movies6[5] = 'TWK'
-movies6[6] = 'HOG'
-for (movie of movies6) {
-    console.log(movie)
+for (index of movies5) {
+    console.log(movies5)
 }
 //STEP 7
-let movies7 = []
-movies7[0] = 'Nope'
-movies7[1] = 'Tenet'
-movies7[2] = 'ATTLG'
-movies7[3] = 'Voyers'
-movies7[4] = 'Joker'
-movies7[5] = 'TWK'
-movies7[6] = 'HOG'
+let movies7 = movies5
 console.log(movies7.sort())
-
 //STEP 8
-let movies8 = []
-movies8[0] = 'Nope'
-movies8[1] = 'Tenet'
-movies8[2] = 'ATTLG'
-movies8[3] = 'Voyers'
-movies8[4] = 'Joker'
-movies8[5] = 'TWK'
-movies8[6] = 'HOG'
-console.log('Movies I like:\n')
-for (index in movies8) {
-    console.log(movies8[index])
-}
-
-let leastFavMovies = ['Scary Movie 1', 'Scary Movie 2', 'Scary Movie 3']
-console.log('\nMovies I regret watching:\n')
-for (movie of leastFavMovies) {
+let movies8 = ['Tenet', 'Joker', 'Pulp Fiction', 'The Dark Knight', 'Nope', 'Tokyo Drift', 'Alice']
+leastFavMovies = ['Scary Movie 1', 'Scary Movie 2', 'Scary Movie 3']
+console.log('\nMovies I Like:\n')
+for (movie of movies8) {
     console.log(movie)
 }
+console.log('...\n')
+console.log('Movies I Regret Watching:\n')
+for (movie of leastFavMovies) {
+    console.log(movie)
+} 
+console.log('...')
 //STEP 9
-let movies9 = movies8
-allMovies = leastFavMovies.concat(movies9)
-console.log(allMovies.sort().reverse())
+let movieList = movies8.concat(leastFavMovies)
+console.log(movieList.sort().reverse())
 //STEP 10
-console.log(allMovies.pop())
-
+let step10 = movieList
+console.log(step10.pop())
 //STEP 11
-console.log(allMovies.shift())
-
+let step11 = movieList
+console.log(step11.shift())
 //STEP 12
-let leastFavIndices = []
-for (i = 0; i < leastFavMovies.length; i++) {
-    let index = leastFavMovies.indexOf(leastFavMovies[i])
-    if (index !== -1) {
-        leastFavIndices.push(index)
+let movieList2 = movies8.concat(leastFavMovies)
+let badMovies = []
+for (i = 0; i < movieList2.length; i++) {
+    if (movieList2[i].includes('Scary')) {
+        let index = movieList2.indexOf(movieList2[i])
+        if (index !== -1) {
+            badMovies.push(index)
+        } 
     }
 }
-console.log(leastFavIndices)
+console.log(badMovies)
+let replacementMovies = ['The Godfather', 'Rambo', 'The Dark Knight'];
+for (let i = 0; i < movieList2.length; i++) {
+    for (let j = 0; j < badMovies.length; j++) {
+        if (i === badMovies[j]) {
+            movieList2[i] = replacementMovies[j];
+            break; // stop searching for badMovies for the current movieList item
+        }
+    }
+}
+console.log(movieList2);
 
-
-let goodMovies = ['The Godfather', 'Rambo', 'The Dark Knight']
-for (let i = 0; i < leastFavIndices.length; i++) {
-    leastFavMovies[leastFavIndices[i]] = goodMovies[i];
-  }
-console.log(leastFavMovies)
 //STEP 13
- let moviesRank = [['The Dark Knight', 1],
+let moviesRank = [['The Dark Knight', 1],
                   ['Joker', 2],
                   ['Nope', 3], 
                   ['Tenet', 4], 
@@ -121,7 +89,6 @@ let filteredMovies = moviesRank.filter((movie) => {
 })
 
 console.log(filteredMovies)
-
 //STEP 14
 let employees = ['David', 'Alex', 'Velli', 'Jake', 'Sam']
 
@@ -132,7 +99,6 @@ const showEmployee = function(employees) {
 }
 console.log('\nEmployees:\n')
 showEmployee(employees)
-
 //STEP 15
 const filteredArray = function(array) {
     return array.filter((element) => {
@@ -141,7 +107,6 @@ const filteredArray = function(array) {
 }
 let items = [1, 'David', null, true, false, 'abcd', '', 7, 0]
 console.log(filteredArray(items))
-
 //STEP 16
 function randomElement(array) {
     let randomIndex = Math.floor(Math.random() * array.length)
